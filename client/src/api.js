@@ -1,6 +1,7 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-export function getToken() { return localStorage.getItem("bookflix_token"); }
-export async function api(path, options = {}) {
+export const API = API_URL; // <--- ADD THIS LINE
+
+export function getToken() { return localStorage.getItem("token"); }export async function api(path, options = {}) {
   const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
   if (getToken()) headers.Authorization = `Bearer ${getToken()}`;
   let response;
