@@ -12,8 +12,7 @@ const app = express();
 // Vite may move from 5173 to 5174/5175 when the default port is already occupied.
 const configuredOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://your-vercel-app-url.vercel.app"], 
-  credentials: true
+    origin: ["http://localhost:5173", "http://localhost:3000", "https://bookflix-tawny.vercel.app"],  credentials: true
 }));
 app.use(express.json({ limit: "1mb" }));
 app.get("/api/health", (_req, res) => res.json({ status: "ok", app: "BookFlix API" }));
